@@ -8,13 +8,13 @@ vars:
 
 tasks:
   build:
-    desc: Build the Docker image
+    desc: Build Docker image
     cmds:
       - docker build {{.APP_DIR}} -t telegrammy
     silent: true
 
   run:
-    desc: Run the Telegrammy container
+    desc: Run telegrammy
     deps:
       - build
     cmds:
