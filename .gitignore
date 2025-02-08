@@ -3,4 +3,4 @@
 *.dylib
 *.test
 *.out
-/config/conversation
+/example_config/conversation
