@@ -7,7 +7,6 @@ responseJobs:
   # Simple reponse job
   - trigger: "hello"
     message: "world!"
-    parseMode: HTML
 
   # Get the current telegrammy configuration
   - trigger: "configuration"
@@ -21,7 +20,6 @@ responseJobs:
   - trigger: "reset"
     command: "rm -f $CHAT_GPT_CONVERSATION_PATH"
     message: "ChatGPT conversation reset"
-    parseMode: HTML
 
 cronJobs:
 
