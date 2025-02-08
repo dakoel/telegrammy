@@ -23,9 +23,9 @@ responseJobs:
     message: "ChatGPT conversation reset"
     parseMode: HTML
 
-periodicJobs:
+cronJobs:
 
-  # Simple periodic job
-  - schedule: "20 16 * * *"
+  # Simple cron job
+  - schedule: "* * * * *"
     message: "[Open this link](https://example.com)"
     parseMode: MarkdownV2

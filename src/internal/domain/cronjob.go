@@ -1,6 +1,6 @@
 package domain
 
-type PeriodicJob struct {
+type CronJob struct {
 	Schedule string `yaml:"schedule"`
 	Job      `yaml:",inline"`
 }

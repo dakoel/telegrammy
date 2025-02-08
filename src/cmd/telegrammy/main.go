@@ -9,8 +9,8 @@ import (
 
 func main() {
 	utils.InitializeLogger()
-	slog.Info("Starting telegrammy.", "numberOfResponseJobs", len(config.GetResponseJobs()), "numberOfPeriodicJobs", len(config.GetPeriodicJobs()))
+	slog.Info("Starting telegrammy.", "numberOfResponseJobs", len(config.GetResponseJobs()), "numberOfCronJobs", len(config.GetCronJobs()))
 
-	handlers.SetUpPeriodicJobs()
+	handlers.SetUpCronJobs()
 	handlers.StartPollingLoop()
 }

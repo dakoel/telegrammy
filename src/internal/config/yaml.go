@@ -29,9 +29,9 @@ func GetResponseJobs() []domain.ResponseJob {
 	return config.ResponseJobs
 }
 
-func GetPeriodicJobs() []domain.PeriodicJob {
+func GetCronJobs() []domain.CronJob {
 	config := getConfig()
-	return config.PeriodicJobs
+	return config.CronJobs
 }
 
 func getConfig() *domain.Config {
