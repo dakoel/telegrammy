@@ -26,6 +26,6 @@ responseJobs:
 periodicJobs:
 
   # Simple periodic job
-  - schedule: "* * * * *"
-    message: "another minute passed"
-    parseMode: HTML
+  - schedule: "20 16 * * *"
+    message: "[Open this link](https://example.com)"
+    parseMode: MarkdownV2
