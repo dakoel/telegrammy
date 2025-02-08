@@ -1,0 +1,30 @@
+---
+version: '3'
+
+vars:
+  APP_DIR: "./src"
+  CONFIG_DIR: "./example_config"
+  CONTAINER_NAME: "telegrammy"
+
+tasks:
+  build:
+    desc: Build the Docker image
+    cmds:
+      - docker build {{.APP_DIR}} -t telegrammy
+    silent: true
+
+  run:
+    desc: Run the Telegrammy container
+    deps:
+      - build
+    cmds:
+      - |
+        docker run \
+          -e TELEGRAMMY_CONFIG_PATH="{{.TELEGRAMMY_CONFIG_PATH}}" \
+          -e TELEGRAM_CHAT_ID="{{.TELEGRAM_CHAT_ID}}" \
+          -e TELEGRAM_BOT_TOKEN="{{.TELEGRAM_BOT_TOKEN}}" \
+          -e CHAT_GPT_TOKEN="{{.CHAT_GPT_TOKEN}}" \
+          -e CHAT_GPT_CONVERSATION_PATH="{{.CHAT_GPT_CONVERSATION_PATH}}" \
+          -v "{{.CONFIG_DIR}}:/etc/telegrammy:z" \
+          telegrammy
+    silent: true
