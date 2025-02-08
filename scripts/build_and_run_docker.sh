@@ -1,7 +1,7 @@
 #!/bin/bash
 dir=$(dirname $(realpath $0))
 
-docker build $dir/.. -t telegrammy
+docker build $dir/../src -t telegrammy
 docker run \
   -e TELEGRAMMY_CONFIG_PATH=$TELEGRAMMY_CONFIG_PATH \
   -e TELEGRAM_CHAT_ID=$TELEGRAM_CHAT_ID \
