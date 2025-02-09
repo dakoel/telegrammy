@@ -24,6 +24,6 @@ responseJobs:
 cronJobs:
 
   # Simple cron job
-  - schedule: "* * * * *"
+  - schedule: "20 16 * * *"
     message: "[Open this link](https://example.com)"
     parseMode: MarkdownV2
