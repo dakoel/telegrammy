@@ -23,10 +23,10 @@ func (job *Job) GetMessage(shellPath string) *string {
 		if len(job.EscapeCharacters) > 0 {
 			output = job.escapeCharacters(output)
 		}
-		if !strings.Contains(message, `%s`) {
-			message = job.Message
-		} else {
+		if strings.Contains(job.Message, "%s") {
 			message = fmt.Sprintf(job.Message, output)
+		} else {
+			message = job.Message
 		}
 	}
 	return &message
