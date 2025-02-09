@@ -7,14 +7,9 @@ vars:
   CONTAINER_NAME: "telegrammy"
 
 tasks:
-  build:
-    desc: Build Docker image
-    cmds:
-      - docker build {{.APP_DIR}} -t telegrammy
-    silent: true
-
-  run:
-    desc: Run telegrammy
+  default:
+    desc: Build and run telegrammy in Docker container
+    aliases: [run]
     deps:
       - build
     cmds:
@@ -27,4 +22,10 @@ tasks:
           -e CHAT_GPT_CONVERSATION_PATH="{{.CHAT_GPT_CONVERSATION_PATH}}" \
           -v "{{.CONFIG_DIR}}:/etc/telegrammy:z" \
           telegrammy
+    silent: true
+
+  build:
+    desc: Build telegrammy Docker image
+    cmds:
+      - docker build {{.APP_DIR}} -t telegrammy
     silent: true
